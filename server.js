@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const packageJson = require('./package.json'); // <-- імпортуємо напряму
+const path = require('path');
 
 app.get('/package.json', (req, res) => {
-  res.json(packageJson); // <-- повертаємо JSON
+  res.sendFile(path.join(__dirname, 'package.json')); // <-- повертаємо JSON
 });
 
 const PORT = process.env.PORT || 3000;
